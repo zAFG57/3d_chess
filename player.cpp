@@ -19,12 +19,12 @@ void player::set_name(string name)
 	name = name;
 }
 
-void player::add_piece(piece p)
+void player::add_piece(piece* p)
 {
     every_piece.push_back(p);
 }
 
-void player::del_piece(piece p)
+void player::del_piece(piece* p)
 {
 	//faux mais raf
 	every_piece.pop_back();

@@ -10,6 +10,5 @@ int main()
 	g.add_player();
 	g.update_play_ground();
 	g.place_piece();
-	g.distribute_piece();
 	return 0;
 }

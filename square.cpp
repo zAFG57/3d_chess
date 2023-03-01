@@ -1,4 +1,4 @@
-#include "all.hpp"
+#include "square.hpp"
 using namespace std;
 
 square::square(): danger_white{false}, danger_black{false} {}

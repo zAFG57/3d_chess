@@ -30,38 +30,63 @@ void game::update_play_ground()
 	playground_size[0] = x;
 	playground_size[1] = 8;
 	playground_size[2] = 8;
-	for (int i=0; i<x*64;i++) play_ground.push_back(new square);
+	for (int i=0; i<x*64;i++) 
+	{
+		play_ground.push_back(new square);
+		cout << i << endl;
+	}
 }
 
 void game::place_piece()
 {
 	for (int i=0; i<playground_size[0]; i++)
 	{
-		play_ground[i*64]->set_piece(new rock);
-		play_ground[i*64+7]->set_piece(new rock);
-		play_ground[i*64+56]->set_piece(new rock);
-		play_ground[i*64+63]->set_piece(new rock);
+		distribute_piece(i,0,new rock);
+		distribute_piece(i,7,new rock);
+		distribute_piece(i,56,new rock);
+		distribute_piece(i,63,new rock);
 
-		play_ground[i*64+1]->set_piece(new knight);
-		play_ground[i*64+6]->set_piece(new knight);
-		play_ground[i*64+57]->set_piece(new knight);
-		play_ground[i*64+62]->set_piece(new knight);
+		distribute_piece(i,1,new knight);
+		distribute_piece(i,6,new knight);
+		distribute_piece(i,57,new knight);
+		distribute_piece(i,62,new knight);
 
-		play_ground[i*64+2]->set_piece(new bishop);
-		play_ground[i*64+5]->set_piece(new bishop);
-		play_ground[i*64+58]->set_piece(new bishop);
-		play_ground[i*64+61]->set_piece(new bishop);
+		distribute_piece(i,2,new bishop);
+		distribute_piece(i,5,new bishop);
+		distribute_piece(i,58,new bishop);
+		distribute_piece(i,61,new bishop);
 
-		play_ground[i*64]->set_piece(new king); // jsp les coordonné
-		play_ground[i*64]->set_piece(new king); // il faudra faire gaffe 
+		distribute_piece(i,4,new king);
+		distribute_piece(i,60,new king);
 
-		play_ground[i*64]->set_piece(new queen);
-		play_ground[i*64]->set_piece(new queen);
+		distribute_piece(i,5,new queen);
+		distribute_piece(i,59,new queen);
 
+		distribute_piece(i,8,new pawn);
+		distribute_piece(i,9,new pawn);
+		distribute_piece(i,10,new pawn);
+		distribute_piece(i,11,new pawn);
+		distribute_piece(i,12,new pawn);
+		distribute_piece(i,13,new pawn);
+		distribute_piece(i,14,new pawn);
+		distribute_piece(i,15,new pawn);
+
+		distribute_piece(i,55,new pawn);
+		distribute_piece(i,54,new pawn);
+		distribute_piece(i,53,new pawn);
+		distribute_piece(i,52,new pawn);
+		distribute_piece(i,51,new pawn);
+		distribute_piece(i,50,new pawn);
+		distribute_piece(i,49,new pawn);
+		distribute_piece(i,48,new pawn);
 	}
 }
 
-void game::distribute_piece()
-{
 
+void game::distribute_piece(int i, int p, piece *piece)
+{
+	piece->update_coordonate(i,p/8,p%8);
+	play_ground[i*64+p]->set_piece(piece);
+	if (p>=32) all_player[i*2+1]->add_piece(piece);
+	else all_player[i*2]->add_piece(piece);
 }

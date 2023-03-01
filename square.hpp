@@ -9,7 +9,7 @@ class square{
     private:
         bool danger_white;
         bool danger_black;
-        piece p;
+        piece *p;
     public:
         square();
         ~square();

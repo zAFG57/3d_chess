@@ -1,15 +1,19 @@
 #ifndef piece_HPP
 #define piece_HPP
 
+
+#include"game.hpp"
 using namespace std;
 
 class piece {
     private:
         int nb_player;
-        int coordinate[3];
+        int coordonate[3];
     public:
+        piece(int a=0, int b=0, int c=0);
         bool is_white() const;
         int who() const;
+        void update_coordonate(int a, int b, int c);
 };
 
 class king : public piece {

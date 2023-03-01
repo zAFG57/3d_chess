@@ -22,7 +22,8 @@ class game {
 	void add_player();
 	void update_play_ground();
 	void place_piece();
-	void distribute_piece();
+    void distribute_piece(int i, int p, piece *piece);
 };
+
 
 #endif
